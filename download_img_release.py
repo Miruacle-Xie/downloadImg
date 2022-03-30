@@ -63,8 +63,8 @@ if __name__ == '__main__':
     print(ws.max_row)
     print(ws.max_column)
     kv = {"user-agent": "Mozilla/5.0"}
-    path = "C:\\Users\\Administrator\\Desktop\\" + file + '\\'
-    path = file.split('.')[0] + '\\'
+    # path = "C:\\Users\\Administrator\\Desktop\\" + file + '\\'
+    path = file.replace("\"", "").split('.')[0] + '\\'
     print(path)
     mkdir(path)
     # '''
