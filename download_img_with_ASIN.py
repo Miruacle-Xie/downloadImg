@@ -65,25 +65,15 @@ if __name__ == '__main__':
     print(ws.max_column)
     kv = {"user-agent": "Mozilla/5.0"}
     # path = "C:\\Users\\Administrator\\Desktop\\" + file + '\\'
-    keyIn = input("按回车:开始下载, /指定下载文件夹路径\n")
-    if '/' in keyIn:
-        path = keyIn[1:] + '\\'
-        print(path)
-        # mkdir(path)
-        folder = os.path.exists(path)
-        if not folder:
-            os.makedirs(path)
-    else:
-        path = file.replace("\"", "").split('.')[0] + '\\'
-        print(path)
-        mkdir(path)
-    # path = file.replace("\"", "").split('.')[0] + '\\'
-
+    path = file.replace("\"", "").split('.')[0] + '\\'
+    print(path)
+    # mkdir(path)
+    if not os.path.exists(path):
+        os.makedirs(path)
     # '''
     try:
         print("正在开始下载...")
         for i in range(2, ws.max_row + 1):
-            # print(ws.cell(i, 3).value)
             if ws.cell(i, 3).value is None:
                 name = path + str(i - 1) + '.jpg'
                 print(name)
